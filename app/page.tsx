@@ -1,8 +1,8 @@
 import React from "react";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ThemeToggle from "@/components/ThemeToggle";
-import VideoEmbed from '@/components/VideoEmbed'; 
-import Image from 'next/image';
+import VideoEmbed from "@/components/VideoEmbed";
+import Image from "next/image";
 
 import {
   Home as HomeIcon,
@@ -15,9 +15,9 @@ import {
 
 // ⚠️ Configurações do seu CTA
 const CONTACT_INFO = {
-  phoneNumber: "83991120620", // SUBSTITUA! 55 + DDD + Seu Número
+  phoneNumber: "5583991120620", // SUBSTITUA! 55 + DDD + Seu Número
   message:
-    "Olá! Vim da Landing Page do Villamor Tambaba e gostaria de falar sobre como me tornar sócio proprietário.",
+    "Olá! Gostaria de falar sobre como me tornar sócio proprietário.",
   ctaText: "Quero Saber Como Ser Sócio!",
 };
 
@@ -73,7 +73,6 @@ export default function Home() {
 
         {/* Conteúdo centralizado */}
         <div className="relative z-10 max-w-5xl mx-auto">
-
           {/* Título Principal */}
           <h1 className="text-4xl sm:text-6 xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
             PRIMEIRO RESORT NUDISTA E LIBERAL DA AMÉRICA DO SUL
@@ -96,18 +95,17 @@ export default function Home() {
         </div>
       </section>
 
-    {/* 2. SEÇÃO DE VÍDEO EXPLICATIVO (AGORA COM COMPONENTE CLIENTE) */}
+      {/* 2. SEÇÃO DE VÍDEO EXPLICATIVO (AGORA COM COMPONENTE CLIENTE) */}
       <section className="w-full max-w-5xl px-4 py-16">
         <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">
-            Assista ao Vídeo e Conheça o Conceito do Villamor
+          Assista ao Vídeo e Conheça o Conceito do Villamor
         </h2>
-        
-        {/* USO DO NOVO COMPONENTE CLIENTE */}
-        <VideoEmbed 
-            videoId="Cc3tL8KgJ4I?si=P50HsD24A0TK4jKW" // SEU ID DE VÍDEO
-            title="Vídeo de Apresentação Villamor Tambaba Resort"
-        />
 
+        {/* USO DO NOVO COMPONENTE CLIENTE */}
+        <VideoEmbed
+          videoId="Cc3tL8KgJ4I?si=P50HsD24A0TK4jKW" // SEU ID DE VÍDEO
+          title="Vídeo de Apresentação Villamor Tambaba Resort"
+        />
       </section>
 
       {/* 3. SEÇÃO DE CREDIBILIDADE E FATO ÚNICO (Com Villamor) */}
@@ -191,15 +189,15 @@ export default function Home() {
             </div>
           </div>
 
-         {/* VÍDEO DA OBRA AGORA USANDO O COMPONENTE CLIENTE */}
-        <VideoEmbed 
+          {/* VÍDEO DA OBRA AGORA USANDO O COMPONENTE CLIENTE */}
+          <VideoEmbed
             videoId="OyGvU0SgJIc?si=wp1z9AnNbfntkYTk" // ⚠️ SUBSTITUA POR UM NOVO ID DO YOUTUBE AQUI!
             title="Vídeo de Acompanhamento da Obra Villamor Tambaba Resort"
-        />
+          />
 
-        <p className="text-center text-gray-600 dark:text-gray-400 mt-4 text-sm">
+          <p className="text-center text-gray-600 dark:text-gray-400 mt-4 text-sm">
             Temos uma câmera 24h acompanhando o progresso da construção.
-        </p>
+          </p>
         </div>
         {/* CTA para Obra */}
         <div className="text-center mt-8">
@@ -247,80 +245,135 @@ export default function Home() {
           />
         </div>
       </section>
+      {/* 5.5. SEÇÃO DE ESTILO DE VIDA: RITMO E REFÚGIO (CORRIGIDA) */}
+      <section className="w-full bg-gray-100 dark:bg-gray-800 py-16 px-4">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
+            Seu Ritmo, Sua Liberdade: Festa ou Paz?
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-12">
+            No Villamor, você escolhe. Vivemos a liberdade em 360 graus, do
+            êxtase da noite à paz do campo.
+          </p>
 
-     {/* 6. GALERIA DE FOTOS DO PROJETO (USANDO COMPONENTE IMAGE) */}
+          {/* CLASSE CORRIGIDA: items-start garante que as colunas se alinhem no topo */}
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            {/* LADO 1: A FESTA SEM LIMITES */}
+            <div className="text-left">
+              <h3 className="text-2xl font-extrabold text-red-600 dark:text-red-400 mb-3">
+                A Noite que Nunca Acaba: 18 Horas de Festa
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 mb-6">
+                Nossa boate é o coração pulsante da liberdade. Com DJs
+                internacionais, shows exclusivos e o melhor som do Nordeste,
+                garantimos que a festa dure mais de 18 horas por dia. O seu
+                único limite é a sua energia.
+              </p>
+              <div className="relative w-full aspect-video rounded-xl shadow-2xl overflow-hidden">
+                <Image
+                  src="/images/balada.jpeg"
+                  alt="Interior da boate luxuosa e liberal do resort, com iluminação neon."
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            {/* LADO 2: O REFÚGIO TRANQUILO (FAZENDA) */}
+            <div className="text-left">
+              <h3 className="text-2xl font-extrabold text-blue-600 dark:text-blue-400 mb-3">
+                Respire a Paz: O Espaço Fazenda
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 mb-6">
+                Quando o corpo pedir descanso, seu refúgio é a Fazenda Villamor.
+                Desfrute de cavalos, charretes, trilhas e um ambiente campestre
+                sereno. Recarregue as energias em contato com a natureza antes
+                de voltar para a festa.
+              </p>
+              <div className="relative w-full aspect-video rounded-xl shadow-2xl overflow-hidden">
+                <Image
+                  src="/images/fazenda.png"
+                  alt="Cavalos e charrete em um amplo espaço de fazenda tranquilo."
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. GALERIA DE FOTOS DO PROJETO (USANDO COMPONENTE IMAGE) */}
       <section className="w-full max-w-5xl px-4 pb-16">
         <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8 text-center">
           Conheça Nossa Estrutura
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          
           {/* FOTO 1: Piscina Exclusiva */}
           <div className="relative w-full aspect-video rounded-lg shadow-md overflow-hidden">
-            <Image 
-              src="/images/bordainfinita.jpg" 
+            <Image
+              src="/images/bordainfinita.jpg"
               alt="Piscina de Borda Ifinita"
               fill
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: "cover" }}
               sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>
 
-           {/* FOTO 2: Areas de utilização*/}
+          {/* FOTO 2: Areas de utilização*/}
           <div className="relative w-full aspect-video rounded-lg shadow-md overflow-hidden">
-            <Image 
-              src="/images/area2.jpg" 
+            <Image
+              src="/images/area2.jpg"
               alt="Areas de utilização"
               fill
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: "cover" }}
               sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>
 
           {/* FOTO 3: Festa na Florestas*/}
           <div className="relative w-full aspect-video rounded-lg shadow-md overflow-hidden">
-            <Image 
-              src="/images/area1.jpg" // 
+            <Image
+              src="/images/area1.jpg" //
               alt="Festa na Floresta"
               fill
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: "cover" }}
               sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>
 
-           {/* FOTO 4: Avião boate*/}
+          {/* FOTO 4: Avião boate*/}
           <div className="relative w-full aspect-video rounded-lg shadow-md overflow-hidden">
-            <Image 
+            <Image
               src="/images/aviao.jpg" // ⚠️ SUBSTITUA ESTA URL!
               alt="Avião Boate"
               fill
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: "cover" }}
               sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>
 
-           {/* FOTO 5: Piscina Exclusiva */}
+          {/* FOTO 5: Piscina Exclusiva */}
           <div className="relative w-full aspect-video rounded-lg shadow-md overflow-hidden">
-            <Image 
+            <Image
               src="/images/geral.jpg" // ⚠️ SUBSTITUA ESTA URL!
               alt="Piscina Exclusiva do Resort"
               fill
-              style={{ objectFit: 'cover' }}
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
-          </div>
-          
-            {/* FOTO 6: Bangalo */}
-          <div className="relative w-full aspect-video rounded-lg shadow-md overflow-hidden">
-            <Image 
-              src="/images/bangalo.jpg" // ⚠️ SUBSTITUA ESTA URL!
-              alt="Bangalo"
-              fill
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: "cover" }}
               sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>
 
+          {/* FOTO 6: Bangalo */}
+          <div className="relative w-full aspect-video rounded-lg shadow-md overflow-hidden">
+            <Image
+              src="/images/bangalo.jpg" // ⚠️ SUBSTITUA ESTA URL!
+              alt="Bangalo"
+              fill
+              style={{ objectFit: "cover" }}
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+          </div>
         </div>
       </section>
 
