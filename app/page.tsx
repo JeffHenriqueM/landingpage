@@ -3,7 +3,6 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import ThemeToggle from "@/components/ThemeToggle";
 import VideoEmbed from "@/components/VideoEmbed";
 import Image from "next/image";
-import Script from "next/script";
 
 import {
   Home as HomeIcon,
@@ -389,23 +388,6 @@ export default function Home() {
           ctaText="Falar com Especialista Agora"
         />
       </footer>
-
-      {/* Script principal (gtag.js) */}
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=AW-16761105675"
-        strategy="afterInteractive"
-      />
-
-      {/* Script de configuração e dataLayer */}
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'AW-16761105675');
-        `}
-      </Script>
-
     </main>
   );
 }
