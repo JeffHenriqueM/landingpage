@@ -11,6 +11,22 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phoneNumber, message, c
   const encodedMessage = encodeURIComponent(message);
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
+  // 1. FUNÇÃO PARA TRATAR O CLIQUE E ENVIAR O EVENTO
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Verifica se a função de conversão está carregada no browser
+    if (typeof window.gtag_report_conversion === 'function') {
+      
+      // Chamamos a função do Google Ads, passando o link do WhatsApp como URL.
+      // O próprio snippet que você adicionou no page.tsx cuidará do redirecionamento
+      // APÓS o envio da conversão.
+      e.preventDefault(); // Previne o redirecionamento imediato do link <a>
+      return window.gtag_report_conversion(whatsappLink);
+      
+    }
+    // Se a função não estiver carregada (ex: bloqueador de ads), 
+    // o link <a> fará o redirecionamento normal via href.
+  };
+
   // Classes Tailwind CSS:
   const tailwindClasses = `
     inline-block 

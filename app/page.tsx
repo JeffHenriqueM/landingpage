@@ -3,6 +3,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import ThemeToggle from "@/components/ThemeToggle";
 import VideoEmbed from "@/components/VideoEmbed";
 import Image from "next/image";
+import Script from "next/script";
 
 import {
   Home as HomeIcon,
@@ -16,8 +17,7 @@ import {
 // ⚠️ Configurações do seu CTA
 const CONTACT_INFO = {
   phoneNumber: "5583991120620", // SUBSTITUA! 55 + DDD + Seu Número
-  message:
-    "Olá! Gostaria de falar sobre como me tornar sócio proprietário.",
+  message: "Olá! Gostaria de falar sobre como me tornar sócio proprietário.",
   ctaText: "Quero Saber Como Ser Sócio!",
 };
 
@@ -388,6 +388,26 @@ export default function Home() {
           ctaText="Falar com Especialista Agora"
         />
       </footer>
+
+      {/* ========================================================== */}
+      {/* SNIPPET DE EVENTO DE CONVERSÃO DO GOOGLE ADS (AW-16761105675/h3vsKEcQpUZEiVuqIg) */}
+      {/* ========================================================== */}
+      <Script id="whatsapp-conversion-event" strategy="afterInteractive">
+        {`
+      // function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-16761105675/h3vsKEcQpUZEiVuqIg', // <- ID/LABEL do seu evento
+            'event_callback': callback
+        });
+        return false;
+      }
+    `}
+      </Script>
     </main>
   );
 }
