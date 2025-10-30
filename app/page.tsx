@@ -389,24 +389,27 @@ export default function Home() {
         />
       </footer>
 
+{/* ========================================================== */}
+      {/* 🛠️ SNIPPET DE EVENTO DE CONVERSÃO POR CLIQUE DO GOOGLE ADS */}
+      {/* (Define a função gtag_report_conversion para ser usada no botão) */}
       {/* ========================================================== */}
-      {/* SNIPPET DE EVENTO DE CONVERSÃO DO GOOGLE ADS (AW-16761105675/h3vsKEcQpUZEiVuqIg) */}
-      {/* ========================================================== */}
-      <Script id="whatsapp-conversion-event" strategy="afterInteractive">
+      <Script id="google-ads-click-event" strategy="afterInteractive">
         {`
-      // function gtag_report_conversion(url) {
-        var callback = function () {
-          if (typeof(url) != 'undefined') {
-            window.location = url;
+          // Esta função é chamada pelo botão do WhatsApp
+          function gtag_report_conversion(url) {
+            var callback = function () {
+              if (typeof(url) != 'undefined') {
+                window.location = url; // Redireciona APÓS o evento ser enviado
+              }
+            };
+            gtag('event', 'conversion', {
+                // Seu ID de Conversão e Rótulo
+                'send_to': 'AW-16761105675/h3vsKEcQpUZEiVuqIg', 
+                'event_callback': callback
+            });
+            return false; // Retorna false para previnir o redirecionamento imediato
           }
-        };
-        gtag('event', 'conversion', {
-            'send_to': 'AW-16761105675/h3vsKEcQpUZEiVuqIg', // <- ID/LABEL do seu evento
-            'event_callback': callback
-        });
-        return false;
-      }
-    `}
+        `}
       </Script>
     </main>
   );

@@ -1,5 +1,5 @@
-// components/WhatsAppButton.tsx
 import React from 'react';
+
 
 interface WhatsAppButtonProps {
   phoneNumber: string;
@@ -11,38 +11,41 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phoneNumber, message, c
   const encodedMessage = encodeURIComponent(message);
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
-  // 1. FUNÇÃO PARA TRATAR O CLIQUE E ENVIAR O EVENTO
+  // FUNÇÃO PARA TRATAR O CLIQUE E ENVIAR O EVENTO DO GOOGLE ADS
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // Verifica se a função de conversão está carregada no browser
+    // 1. Verifica se a função de conversão por clique está carregada no browser
+    // Esta função é definida no Snippet de Evento na sua page.tsx
     if (typeof window.gtag_report_conversion === 'function') {
       
-      // Chamamos a função do Google Ads, passando o link do WhatsApp como URL.
-      // O próprio snippet que você adicionou no page.tsx cuidará do redirecionamento
-      // APÓS o envio da conversão.
-      e.preventDefault(); // Previne o redirecionamento imediato do link <a>
+      // 2. Previne o redirecionamento imediato do link <a>
+      // O redirecionamento ocorrerá DENTRO da função gtag_report_conversion
+      e.preventDefault(); 
+      
+      // 3. Chama a função do Google Ads, passando o link do WhatsApp como URL 
+      // para que a função redirecione após enviar o evento de conversão.
       return window.gtag_report_conversion(whatsappLink);
       
     }
-    // Se a função não estiver carregada (ex: bloqueador de ads), 
-    // o link <a> fará o redirecionamento normal via href.
+    // Se a função não estiver carregada (ex: tag bloqueada), 
+    // o link <a> fará o redirecionamento normal (via href).
   };
 
-  // Classes Tailwind CSS:
+  // Classes Tailwind CSS
   const tailwindClasses = `
     inline-block 
-    py-4 px-8          // Padding Y (vertical) de 4, Padding X (horizontal) de 8
-    bg-green-500       // Cor de fundo do WhatsApp (verde 500)
-    text-white         // Cor do texto branca
-    rounded-lg         // Bordas arredondadas (maior que o "5px" anterior)
-    font-extrabold     // Fonte extra negrito para destaque
-    text-xl            // Tamanho da fonte grande (1.2em/20px)
-    uppercase          // Texto em caixa alta
-    shadow-lg          // Sombra grande (para destaque)
-    hover:bg-green-600 // Efeito hover para mudar a cor ao passar o mouse
-    transition-colors  // Transição suave para o efeito hover
+    py-4 px-8          
+    bg-green-500       
+    text-white         
+    rounded-lg         
+    font-extrabold     
+    text-xl            
+    uppercase          
+    shadow-lg          
+    hover:bg-green-600 
+    transition-colors  
     cursor-pointer
-    no-underline       // Remove sublinhado do link
-    w-full sm:w-auto   // OCUPA 100% da largura no celular, mas é automático no desktop
+    no-underline       
+    w-full sm:w-auto   
   `;
 
   return (
@@ -50,7 +53,9 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phoneNumber, message, c
       href={whatsappLink} 
       target="_blank" 
       rel="noopener noreferrer"
-      className={tailwindClasses} // Aplicando as classes
+      className={tailwindClasses} 
+      // ⚠️ Ação para chamar o rastreamento no clique
+      onClick={handleClick}
     >
       {ctaText}
     </a>
