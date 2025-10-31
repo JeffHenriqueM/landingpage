@@ -13,7 +13,7 @@ import {
   Factory,
   HardHat,
 } from "lucide-react";
-
+//
 // ⚠️ Configurações do seu CTA
 const CONTACT_INFO = {
   phoneNumber: "5583993663341", // SUBSTITUA! 55 + DDD + Seu Número
