@@ -1,3 +1,5 @@
+"use client"; // <<< ADICIONE ISSO AQUI
+
 import React from 'react';
 
 
@@ -12,6 +14,7 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phoneNumber, message, c
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
   // FUNÇÃO PARA TRATAR O CLIQUE E ENVIAR O EVENTO DO GOOGLE ADS
+  // Esta função de evento só pode existir em um Client Component
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     // 1. Verifica se a função de conversão por clique está carregada no browser
     // Esta função é definida no Snippet de Evento na sua page.tsx
@@ -54,7 +57,7 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phoneNumber, message, c
       target="_blank" 
       rel="noopener noreferrer"
       className={tailwindClasses} 
-      // ⚠️ Ação para chamar o rastreamento no clique
+      // A prop onClick é válida em um Client Component
       onClick={handleClick}
     >
       {ctaText}
