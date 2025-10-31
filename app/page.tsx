@@ -16,7 +16,7 @@ import {
 
 // ⚠️ Configurações do seu CTA
 const CONTACT_INFO = {
-  phoneNumber: "5583991120620", // SUBSTITUA! 55 + DDD + Seu Número
+  phoneNumber: "5583993663341", // SUBSTITUA! 55 + DDD + Seu Número
   message: "Olá! Gostaria de falar sobre como me tornar sócio proprietário.",
   ctaText: "Quero Saber Como Ser Sócio!",
 };
