@@ -4,6 +4,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import VideoEmbed from "@/components/VideoEmbed";
 import Image from "next/image";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next"
 
 import {
   Home as HomeIcon,
